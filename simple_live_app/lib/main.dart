@@ -279,27 +279,6 @@ class MyApp extends StatelessWidget {
                     child: child!,
                   ),
                 ),
-
-                //查看DEBUG日志按钮
-                //只在Debug、Profile模式显示
-                Visibility(
-                  visible: !kReleaseMode,
-                  child: Positioned(
-                    right: 12,
-                    bottom: 100 + context.mediaQueryViewPadding.bottom,
-                    child: Opacity(
-                      opacity: 0.4,
-                      child: ElevatedButton(
-                        child: const Text("DEBUG LOG"),
-                        onPressed: () {
-                          Get.bottomSheet(
-                            const DebugLogPage(),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                ),
               ],
             ),
             );
