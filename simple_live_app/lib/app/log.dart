@@ -55,6 +55,9 @@ class Log {
   );
 
   static void d(String message, [bool writeFile = true]) {
+    if (kReleaseMode) {
+      return;
+    }
     addDebugLog(message, Colors.orange);
     logger.d("${DateTime.now().toString()}\n$message");
     if (writeFile) {
@@ -63,6 +66,9 @@ class Log {
   }
 
   static void i(String message, [bool writeFile = true]) {
+    if (kReleaseMode) {
+      return;
+    }
     addDebugLog(message, Colors.blue);
     logger.i("${DateTime.now().toString()}\n$message");
     if (writeFile) {
@@ -73,6 +79,9 @@ class Log {
 
   static void e(String message, StackTrace stackTrace,
       [bool writeFile = true]) {
+    if (kReleaseMode) {
+      return;
+    }
     addDebugLog('$message\r\n\r\n$stackTrace', Colors.red);
     logger.e("${DateTime.now().toString()}\n$message", stackTrace: stackTrace);
     if (writeFile) {
@@ -81,6 +90,9 @@ class Log {
   }
 
   static void w(String message, [bool writeFile = true]) {
+    if (kReleaseMode) {
+      return;
+    }
     addDebugLog(message, Colors.pink);
     logger.w("${DateTime.now().toString()}\n$message");
     if (writeFile) {
@@ -89,6 +101,9 @@ class Log {
   }
 
   static void logPrint(dynamic obj, [bool writeFile = true]) {
+    if (kReleaseMode) {
+      return;
+    }
     addDebugLog(obj.toString(), Colors.red);
     if (writeFile) {
       writeLog(obj, Level.info);

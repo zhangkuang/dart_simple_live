@@ -20,7 +20,6 @@ import 'package:simple_live_app/app/utils/listen_fourth_button.dart';
 import 'package:simple_live_app/models/db/follow_user.dart';
 import 'package:simple_live_app/models/db/follow_user_tag.dart';
 import 'package:simple_live_app/models/db/history.dart';
-import 'package:simple_live_app/modules/other/debug_log_page.dart';
 import 'package:simple_live_app/routes/app_pages.dart';
 import 'package:simple_live_app/routes/route_path.dart';
 import 'package:simple_live_app/services/bilibili_account_service.dart';
@@ -205,8 +204,10 @@ class MyApp extends StatelessWidget {
         ],
         supportedLocales: const [Locale("zh", "CN")],
         logWriterCallback: (text, {bool? isError}) {
-          Log.addDebugLog(text, (isError ?? false) ? Colors.red : Colors.grey);
-          Log.writeLog(text, (isError ?? false) ? Level.error : Level.info);
+          if (!kReleaseMode) {
+            Log.addDebugLog(text, (isError ?? false) ? Colors.red : Colors.grey);
+            Log.writeLog(text, (isError ?? false) ? Level.error : Level.info);
+          }
         },
         // 升级后Android页面过渡动画似乎有BUG
         defaultTransition: Platform.isAndroid ? Transition.cupertino : null,
@@ -275,27 +276,6 @@ class MyApp extends StatelessWidget {
                       }
                     },
                     child: child!,
-                  ),
-                ),
-
-                //查看DEBUG日志按钮
-                //只在Debug、Profile模式显示
-                Visibility(
-                  visible: !kReleaseMode,
-                  child: Positioned(
-                    right: 12,
-                    bottom: 100 + context.mediaQueryViewPadding.bottom,
-                    child: Opacity(
-                      opacity: 0.4,
-                      child: ElevatedButton(
-                        child: const Text("DEBUG LOG"),
-                        onPressed: () {
-                          Get.bottomSheet(
-                            const DebugLogPage(),
-                          );
-                        },
-                      ),
-                    ),
                   ),
                 ),
               ],
