@@ -9,7 +9,7 @@
 ### 必需工具
 
 1. **Flutter SDK**
-   - 版本: 3.27.x 或更高
+   - 版本: 3.38.x 或更高
    - 下载地址: https://flutter.dev/docs/get-started/install
    - 验证安装: `flutter --version`
 
