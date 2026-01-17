@@ -1,4 +1,6 @@
 > ### ⚠ 本项目不提供Release安装包，请自行编译后运行测试。
+> 
+> **📦 Android 打包指南**: [BUILD_ANDROID.md](./BUILD_ANDROID.md)
 
 
 <p align="center">
