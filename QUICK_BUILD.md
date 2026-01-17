@@ -31,12 +31,16 @@ build_android.bat
 3. 选择 `1` 构建 Debug APK（无需签名）
 4. 在 `simple_live_app/build/app/outputs/flutter-apk/` 找到生成的 APK
 
-### 方法 2: 使用 GitHub Actions
+### 方法 2: 使用 GitHub Actions（无需本地环境）
 
-1. Fork 此仓库
-2. 进入 Actions 标签
+**不想安装开发环境？使用云端构建！**
+
+1. Fork 此仓库到你的 GitHub 账号
+2. 进入你的仓库，点击 `Actions` 标签
 3. 运行 "Build Android Debug APK" 工作流
 4. 从 Artifacts 下载构建好的 APK
+
+**详细步骤**: [GitHub Actions 构建指南](./GITHUB_ACTIONS_BUILD.md)
 
 ### 方法 3: 命令行构建
 
