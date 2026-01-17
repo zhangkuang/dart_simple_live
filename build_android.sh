@@ -36,7 +36,14 @@ echo ""
 read -p "请输入选项 [1-3]: " BUILD_TYPE
 
 # 进入应用目录
-cd "$(dirname "$0")/simple_live_app"
+SCRIPT_DIR="$(dirname "$0")"
+if [ ! -d "$SCRIPT_DIR/simple_live_app" ]; then
+    echo -e "${RED}错误: 未找到 simple_live_app 目录${NC}"
+    echo "请确保在项目根目录运行此脚本"
+    exit 1
+fi
+
+cd "$SCRIPT_DIR/simple_live_app"
 
 # 获取依赖
 echo ""

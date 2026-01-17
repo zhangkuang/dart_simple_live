@@ -31,6 +31,13 @@ echo.
 set /p BUILD_TYPE="请输入选项 [1-3]: "
 
 REM 进入应用目录
+if not exist "%~dp0simple_live_app" (
+    echo [错误] 未找到 simple_live_app 目录
+    echo 请确保在项目根目录运行此脚本
+    pause
+    exit /b 1
+)
+
 cd /d "%~dp0simple_live_app"
 
 REM 获取依赖
