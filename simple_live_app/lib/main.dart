@@ -205,8 +205,10 @@ class MyApp extends StatelessWidget {
         ],
         supportedLocales: const [Locale("zh", "CN")],
         logWriterCallback: (text, {bool? isError}) {
-          Log.addDebugLog(text, (isError ?? false) ? Colors.red : Colors.grey);
-          Log.writeLog(text, (isError ?? false) ? Level.error : Level.info);
+          if (!kReleaseMode) {
+            Log.addDebugLog(text, (isError ?? false) ? Colors.red : Colors.grey);
+            Log.writeLog(text, (isError ?? false) ? Level.error : Level.info);
+          }
         },
         // 升级后Android页面过渡动画似乎有BUG
         defaultTransition: Platform.isAndroid ? Transition.cupertino : null,
