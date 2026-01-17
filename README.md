@@ -1,6 +1,6 @@
 > ### ⚠ 本项目不提供Release安装包，请自行编译后运行测试。
 > 
-> **📦 Android 打包指南**: [BUILD_ANDROID.md](./BUILD_ANDROID.md)
+> **📦 快速打包**: [QUICK_BUILD.md](./QUICK_BUILD.md) | **📖 详细文档**: [BUILD_ANDROID.md](./BUILD_ANDROID.md)
 
 
 <p align="center">
@@ -45,6 +45,24 @@
 ## 环境
 
 Flutter : `3.38`
+
+## 如何构建
+
+### Android APK 打包
+
+**快速开始** (3 步完成):
+1. 安装 [Flutter SDK](https://flutter.dev/docs/get-started/install) 和 Java 17
+2. 运行构建脚本：
+   - Windows: 双击 `build_android.bat`
+   - Linux/Mac: 运行 `./build_android.sh`
+3. 选择构建类型（推荐选择 1 - Debug APK）
+
+**详细文档**: 
+- 🚀 [快速构建指南](./QUICK_BUILD.md) - 简单快速
+- 📖 [完整构建文档](./BUILD_ANDROID.md) - 详细说明
+- ⚙️ [GitHub Actions 自动构建](./.github/workflows/build_android_debug.yml) - 云端构建
+
+构建成功后，APK 文件位于 `simple_live_app/build/app/outputs/flutter-apk/`
 
 ## 参考及引用
 
