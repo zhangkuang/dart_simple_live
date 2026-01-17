@@ -48,6 +48,11 @@ if "%BUILD_TYPE%"=="1" (
         echo.
         echo APK 文件位置:
         echo   %CD%\build\app\outputs\flutter-apk\app-debug.apk
+        echo.
+        echo [文件大小:]
+        for %%f in (build\app\outputs\flutter-apk\*.apk) do (
+            echo   %%~nf%%~xf - %%~zf bytes
+        )
     ) else (
         echo.
         echo [×] 构建失败
@@ -71,6 +76,11 @@ if "%BUILD_TYPE%"=="1" (
         echo.
         echo APK 文件位置:
         echo   %CD%\build\app\outputs\flutter-apk\app-release.apk
+        echo.
+        echo [文件大小:]
+        for %%f in (build\app\outputs\flutter-apk\app-release.apk) do (
+            echo   %%~nf%%~xf - %%~zf bytes
+        )
     ) else (
         echo.
         echo [×] 构建失败
@@ -96,6 +106,11 @@ if "%BUILD_TYPE%"=="1" (
         echo   %CD%\build\app\outputs\flutter-apk\app-armeabi-v7a-release.apk  ^(32位 ARM^)
         echo   %CD%\build\app\outputs\flutter-apk\app-arm64-v8a-release.apk    ^(64位 ARM，推荐^)
         echo   %CD%\build\app\outputs\flutter-apk\app-x86_64-release.apk       ^(x86_64^)
+        echo.
+        echo [文件大小:]
+        for %%f in (build\app\outputs\flutter-apk\app-*-release.apk) do (
+            echo   %%~nf%%~xf - %%~zf bytes
+        )
     ) else (
         echo.
         echo [×] 构建失败
@@ -106,15 +121,6 @@ if "%BUILD_TYPE%"=="1" (
     echo [无效的选项]
     pause
     exit /b 1
-)
-
-echo.
-echo [文件大小:]
-dir /b build\app\outputs\flutter-apk\*.apk 2>nul
-if %ERRORLEVEL% equ 0 (
-    for %%f in (build\app\outputs\flutter-apk\*.apk) do (
-        echo   %%~nf%%~xf - %%~zf bytes
-    )
 )
 
 echo.
