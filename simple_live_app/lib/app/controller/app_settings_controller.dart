@@ -83,6 +83,9 @@ class AppSettingsController extends GetxController {
     autoFullScreen.value = LocalStorageService.instance
         .getValue(LocalStorageService.kAutoFullScreen, false);
 
+    playershowSuperChat.value = LocalStorageService.instance
+        .getValue(LocalStorageService.kPlayerShowSuperChat, true);
+
     // ignore: invalid_use_of_protected_member
     shieldList.value = LocalStorageService.instance.shieldBox.values.toSet();
 
